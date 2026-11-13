@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <title>OpenMeet</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Home -->
+    <section id="home" class="screen">
+      <div class="card">
+        <h1>OpenMeet</h1>
+        <p class="muted">Videochiamate 1:1 dirette tra browser. Nessun account, nessun server, nessun limite di tempo.</p>
+        <button id="new-call" class="primary big">Nuova chiamata</button>
+      </div>
+    </section>
+
+    <!-- Chiamata -->
+    <section id="call" class="screen" hidden>
+      <div class="stage">
+        <video id="remote-video" autoplay playsinline></video>
+        <div id="remote-placeholder" class="placeholder">In attesa dell'altro partecipante…</div>
+        <div class="local-wrap">
+          <video id="local-video" autoplay playsinline muted></video>
+          <div id="local-off" class="local-off" hidden>Webcam spenta</div>
+          <div id="local-note" class="local-note" hidden>Video in pausa: rete lenta, priorità all’audio</div>
+        </div>
+
+        <div class="topbar">
+          <span id="status" class="status"><span class="dot"></span><span id="status-text">Avvio…</span></span>
+          <span id="quality" class="status" hidden><span class="dot"></span><span class="label"></span></span>
+          <span id="remote-flags" class="muted small"></span>
+        </div>
+
+        <div id="share" class="panel" hidden>
+          <div class="panel-title">Invia questo link all'altra persona</div>
+          <div class="share-row">
+            <input id="share-link" readonly />
+            <button id="copy-link">Copia</button>
+          </div>
+          <div class="muted small">Funziona una sola volta, per 2 persone, e scade il <span id="share-exp"></span>.</div>
+        </div>
+
+        <div id="verify" class="panel" hidden>
+          <div class="panel-title">Codice di verifica</div>
+          <div id="verify-code" class="code">···-···</div>
+          <div class="muted small">Leggetelo a voce: se è uguale sui due schermi, nessuno è in mezzo.</div>
+        </div>
+
+        <div id="banner" class="banner" hidden></div>
+
+        <div class="controls">
+          <button id="toggle-mic" class="round" title="Microfono">🎙️</button>
+          <button id="toggle-cam" class="round" title="Webcam">📷</button>
+          <button id="hangup" class="round danger" title="Riaggancia">📞</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Messaggi finali / errori -->
+    <section id="message" class="screen" hidden>
+      <div class="card">
+        <h2 id="message-title"></h2>
+        <p id="message-text" class="muted"></p>
+        <button id="go-home" class="primary">Torna alla home</button>
+      </div>
+    </section>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

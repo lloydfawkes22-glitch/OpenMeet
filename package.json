@@ -1,0 +1,20 @@
+{
+  "name": "openmeet",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Videochiamate 1:1 peer-to-peer, senza backend",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "trystero": "^0.27.0"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}
